@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        /* justify-content: center; */
+        /* align-items: center; */
+        height: 100vh;
+        padding: 2rem;
+        background-color: #cbc4c4;
+      }
+
+      .container {
+        width: 20%;
+        /* margin: 0 auto; */
+      }
+
+      .product {
+        background-color: #f1ecec;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .product-info h2 {
+        margin: 0;
+        color: #333;
+      }
+
+      .product-info span {
+        color: #777;
+      }
+
+      .product-description {
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .product-price {
+        color: #007bff;
+        font-weight: bold;
+      }
+      h1 {
+        text-align: center;
+        color: white;
+        background-color: #007bff;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Products</h1>
+      <% products.forEach(product => { %>
+      <div class="product">
+        <div class="product-info">
+          <h2><%= product.productName %></h2>
+          <span>Category: <%= product.productCategory %></span>
+        </div>
+        <p class="product-description"><%= product.productDescription %></p>
+        <p class="product-price">Rs.<%= product.productPrice %></p>
+        <% if (product.productDiscount > 0) { %>
+        <p class="product-discount">
+          Discount: <%= product.productDiscount %>%
+        </p>
+        <% } %>
+        <p>Seller: <%= product.sellerName %></p>
+        <img
+          src="<%= product.productImageUrl %>"
+          alt="<%= product.productName %>"
+          width="200"
+        />
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>
